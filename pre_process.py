@@ -41,8 +41,8 @@ def construct_DetectionDataset(root_dir, tgt_dir, train_ratio):
         img_list = os.listdir(sub)
         for i, img_name in enumerate(img_list):
             # Check existence of pair image and xml files
-            if (count == 5000):
-               break
+            #if (count == 5000):
+            # break
             if (img_name[-3:] == 'jpg') and (os.path.exists(sub + '/' + img_name[:-3] + 'xml')):
                 # Copy image to target dir (instead of simple copy, we open and convert to RGB)
                 if (count % 10 < threshold):
