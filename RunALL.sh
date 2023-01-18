@@ -115,3 +115,6 @@ python -m torch.distributed.launch --nproc_per_node=$NUM_GPU --use_env main.py -
 --batch_size $BATCH_SIZE --num_classes $NUM_CLASSES --output_dir $OUTPUT --epochs $NUM_EPOCHS
 
 python final_evaluate.py --coco_path $COCO_TRAIN --batch_size $BATCH_SIZE --num_classes $NUM_CLASSES --resume $OUTPUT/$CHECK_POINT --detail True
+
+# Move to main folder
+cd ..

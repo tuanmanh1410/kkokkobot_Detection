@@ -82,3 +82,6 @@ python remove_files.py $back/$COCO/$train xml
 python remove_files.py $back/$COCO/$val xml
 #python remove_files.py $back/$COCO/$test xml
 
+# Move to main folder
+cd ..
+
