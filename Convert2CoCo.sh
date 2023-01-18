@@ -3,6 +3,7 @@
 
 # Usage: ./Convert2CoCo.sh <VOC_dir> <COCO_dir>
 # Make new dicrectory for COCO format
+
 # 3 below folders need to be modified to fit your own path
 COCO="COLOR_5K_COCO"
 VOC="COLOR_5K_VOC"
