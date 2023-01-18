@@ -15,10 +15,10 @@ if [ ! -d ./detr_Egg_Detection ]; then
   cd ./detr_Egg_Detection
 
   # Print message to confirm the folder was created
-  echo "Successfully cloned voc2coco"
+  echo "Successfully cloned detr_Egg_Detection"
 else
   # Print message if folder already exists
-  echo "Folder DETR already exists"
+  echo "Folder detr_Egg_Detection already exists"
   cd ./detr_Egg_Detection
 fi
 

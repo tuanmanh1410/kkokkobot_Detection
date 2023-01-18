@@ -63,10 +63,10 @@ if [ ! -d ./voc2coco ]; then
   cd ./voc2coco
 
   # Print message to confirm the folder was created
-  echo "Successfully cloned voc2coco"
+  echo "Successfully cloned detr_Egg_Detection"
 else
   # Print message if folder already exists
-  echo "Folder voc2coco already exists"
+  echo "Folder detr_Egg_Detection already exists"
   cd ./voc2coco
 fi
 

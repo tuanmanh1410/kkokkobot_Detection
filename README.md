@@ -7,6 +7,12 @@ First, you need to install some packages or virtual environment
 ```
 conda env create -f Egg_Detection.yml
 ```
+After that, we need install pycocotools 2.0 for COCO dataset
+```
+conda install Cython
+pip install pycocotools
+
+```
 
 
 ## Dataset
@@ -42,3 +48,4 @@ Or run all in one time:
 ```
 
 Note that inside Train.sh already contains Inference phase, so you can run Train.sh only one time to get result.
+We need to modify some parameters in scripts files to run with your own dataset fitting with flexible case as well as hardware.
