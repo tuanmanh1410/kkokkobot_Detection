@@ -8,6 +8,15 @@ COCO="COLOR_5K_COCO"
 VOC="COLOR_5K_VOC"
 label="label_color.txt"
 
+
+COCO_TRAIN="../COLOR_5K_COCO"
+NUM_CLASSES=7
+NUM_EPOCHS=2
+BATCH_SIZE=2
+NUM_GPU=4
+OUTPUT="outputs_color"
+CHECK_POINT="best.pth"
+
 # Check if folder already exists
 if [ ! -d $COCO ]; then
   # Create the new folder
@@ -87,13 +96,7 @@ cd ..
 # Training DETR
 # Make shell script for training Custom Dataset
 
-COCO_TRAIN="../COLOR_5K_COCO"
-NUM_CLASSES=7
-NUM_EPOCHS=2
-BATCH_SIZE=2
-NUM_GPU=4
-OUTPUT="outputs_color"
-CHECK_POINT="best.pth"
+
 
 # Check if main folder already exists
 if [ ! -d ./detr_Egg_Detection ]; then
