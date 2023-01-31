@@ -68,16 +68,21 @@ fi
 > test_path.txt
 
 # Get file path
+# Usage python Get_FilePath.py <path contains annotations files> <file_type or extension> <output_file>
 python Get_FilePath.py $back/$VOC/$train xml ./train_path.txt
 python Get_FilePath.py $back/$VOC/$val xml ./val_path.txt
 python Get_FilePath.py $back/$VOC/$test xml ./test_path.txt
 
 # Convert VOC to COCO
+# Usage: python voc2coco.py --ann_paths_list <path to file contains list of annotation files> //
+# --labels <path to file contains list of labels> --output <path to output file>
 python voc2coco.py --ann_paths_list ./train_path.txt --labels $label --output $back/$COCO/$anotation/train.json
 python voc2coco.py --ann_paths_list ./val_path.txt --labels $label --output $back/$COCO/$anotation/val.json
 python voc2coco.py --ann_paths_list ./test_path.txt --labels $label --output $back/$COCO/$anotation/test.json
 
 # Remove xml file in COCO path except for test folder
+# Usage: python remove_files.py <path to folder> <file_type or extension>
+# Just remove xml file in train and val folder and keep test folder for evaluation
 python remove_files.py $back/$COCO/$train xml
 python remove_files.py $back/$COCO/$val xml
 #python remove_files.py $back/$COCO/$test xml
