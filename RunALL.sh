@@ -1,21 +1,19 @@
 #!/bin/bash
 # Make shell script for converting VOC to COCO format
 
-# Usage: ./Convert2CoCo.sh <VOC_dir> <COCO_dir>
-# Make new dicrectory for COCO format
-# 3 below folders need to be modified to fit your own path
-COCO="COLOR_5K_COCO"
-VOC="COLOR_5K_VOC"
-label="label_color.txt"
+# Usage: ./RunAll.sh <VoC_dir> <COCO_dir> <label_file_name> <num_classes> <num_epochs> <batch_size> <num_gpus> <output> <check_point_name>
+VOC=$1
+COCO=$2
+label=$3
 
 
-COCO_TRAIN="../COLOR_5K_COCO"
-NUM_CLASSES=7
-NUM_EPOCHS=2
-BATCH_SIZE=2
-NUM_GPU=4
-OUTPUT="outputs_color"
-CHECK_POINT="best.pth"
+COCO_TRAIN="../$COCO"
+NUM_CLASSES=$4
+NUM_EPOCHS=$5
+BATCH_SIZE=$6
+NUM_GPU=$7
+OUTPUT=$8
+CHECK_POINT=$9
 
 # Check if folder already exists
 if [ ! -d $COCO ]; then

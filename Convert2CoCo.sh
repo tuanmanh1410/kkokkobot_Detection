@@ -1,13 +1,14 @@
 #!/bin/bash
 # Make shell script for converting VOC to COCO format
 
-# Usage: ./Convert2CoCo.sh <VOC_dir> <COCO_dir>
+# Usage: ./Convert2CoCo.sh <VOC_dir> <COCO_dir> <label_file_name>
+# e.g., ./Convert2CoCo.sh ./voc_data/COLOR ./coco_data/COLOR label_color.txt
 # Make new dicrectory for COCO format
 
 # 3 below folders need to be modified to fit your own path
-COCO="COLOR_5K_COCO"
-VOC="COLOR_5K_VOC"
-label="label_color.txt"
+VOC=$1
+COCO=$2
+label=$3
 
 # Check if folder already exists
 if [ ! -d $COCO ]; then
@@ -68,21 +69,16 @@ fi
 > test_path.txt
 
 # Get file path
-# Usage python Get_FilePath.py <path contains annotations files> <file_type or extension> <output_file>
 python Get_FilePath.py $back/$VOC/$train xml ./train_path.txt
 python Get_FilePath.py $back/$VOC/$val xml ./val_path.txt
 python Get_FilePath.py $back/$VOC/$test xml ./test_path.txt
 
 # Convert VOC to COCO
-# Usage: python voc2coco.py --ann_paths_list <path to file contains list of annotation files> //
-# --labels <path to file contains list of labels> --output <path to output file>
 python voc2coco.py --ann_paths_list ./train_path.txt --labels $label --output $back/$COCO/$anotation/train.json
 python voc2coco.py --ann_paths_list ./val_path.txt --labels $label --output $back/$COCO/$anotation/val.json
 python voc2coco.py --ann_paths_list ./test_path.txt --labels $label --output $back/$COCO/$anotation/test.json
 
 # Remove xml file in COCO path except for test folder
-# Usage: python remove_files.py <path to folder> <file_type or extension>
-# Just remove xml file in train and val folder and keep test folder for evaluation
 python remove_files.py $back/$COCO/$train xml
 python remove_files.py $back/$COCO/$val xml
 #python remove_files.py $back/$COCO/$test xml

@@ -1,7 +1,12 @@
 import os
 import csv
+import argparse
 from PIL import Image
 
+parser = argparse.ArgumentParser(description='KKoKKo-BOT detection dataset pre-processing')
+parser.add_argument('--root-dir', dest='root_dir', default='./data', help='Pass the path information of the original detection dataset', type=str)
+parser.add_argument('--tgt-dir', dest='tgt_dir', default='./voc_data', help='Pass the target path where to store the processing results', type=str)
+parser.add_argument('--train-ratio', dest='train_ratio', default=0.8, type=float)
 
 def construct_DetectionDataset(root_dir, tgt_dir, train_ratio):
     """
@@ -78,9 +83,8 @@ def construct_DetectionDataset(root_dir, tgt_dir, train_ratio):
 
 # Main function
 if __name__ == '__main__':
-   # construct_DetectionDataset(root_dir ='/hdd1/kkokkobot/hanbat_data/01.데이터/원천데이터/MONO/A농장', tgt_dir='/hdd/kkokkobot/Detection/Cycle0/Detection_Data_4k', train_ratio=0.8)
-   construct_DetectionDataset(root_dir ='/hdd/kkokkobot/FinalEggData/COLOR', tgt_dir='/hdd/kkokkobot/FinalEggData/DETECTION/COLOR_5K', train_ratio=0.8)
-   # /hdd/kkokkobot/Cycle1_Submission/MONO
-   # construct_DetectionDataset(root_dir='/hdd1/kkokkobot/eggData/원천데이터/MONO', tgt_dir='/hdd/kkokkobot/Detection_Egg_Dateset_5k', train_ratio=0.8)
+
+   args = parser.parse_args()
+   construct_DetectionDataset(root_dir =args.root_dir, tgt_dir=args.tgt_dir, train_ratio=args.train_ratio)
 
 
