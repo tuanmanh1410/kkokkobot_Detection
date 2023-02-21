@@ -7,7 +7,7 @@ COCO=$2
 label=$3
 
 
-COCO_TRAIN="../$COCO"
+COCO_TRAIN=$2
 NUM_CLASSES=$4
 NUM_EPOCHS=$5
 BATCH_SIZE=$6
@@ -61,10 +61,10 @@ if [ ! -d ./voc2coco ]; then
   cd ./voc2coco
 
   # Print message to confirm the folder was created
-  echo "Successfully cloned detr_Egg_Detection"
+  echo "Successfully cloned voc2coco"
 else
   # Print message if folder already exists
-  echo "Folder detr_Egg_Detection already exists"
+  echo "Folder voc2coco already exists"
   cd ./voc2coco
 fi
 
@@ -103,7 +103,7 @@ if [ ! -d ./detr_Egg_Detection ]; then
   cd ./detr_Egg_Detection
 
   # Print message to confirm the folder was created
-  echo "Successfully cloned voc2coco"
+  echo "Successfully cloned DETR"
 else
   # Print message if folder already exists
   echo "Folder DETR already exists"
