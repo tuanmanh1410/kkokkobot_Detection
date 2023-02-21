@@ -19,6 +19,11 @@ CHECK_POINT=$9
 if [ ! -d $COCO ]; then
   # Create the new folder
   mkdir $COCO
+  
+  # Copy all files from VOC to COCO
+  cp -r $VOC/$train $COCO
+  cp -r $VOC/$val $COCO
+  cp -r $VOC/$test $COCO
 
   # Print message to confirm the folder was created
   echo "Successfully created $COCO"
@@ -46,13 +51,6 @@ fi
 train="train"
 val="val"
 test="test"
-back=".."
-
-
-# Copy all files from VOC to COCO
-cp -r $VOC/$train $COCO
-cp -r $VOC/$val $COCO
-cp -r $VOC/$test $COCO
 
 # Check if folder already exists
 if [ ! -d ./voc2coco ]; then
@@ -74,18 +72,18 @@ fi
 > test_path.txt
 
 # Get file path
-python Get_FilePath.py $back/$VOC/$train xml ./train_path.txt
-python Get_FilePath.py $back/$VOC/$val xml ./val_path.txt
-python Get_FilePath.py $back/$VOC/$test xml ./test_path.txt
+python Get_FilePath.py $VOC/$train xml ./train_path.txt
+python Get_FilePath.py $VOC/$val xml ./val_path.txt
+python Get_FilePath.py $VOC/$test xml ./test_path.txt
 
 # Convert VOC to COCO
-python voc2coco.py --ann_paths_list ./train_path.txt --labels $label --output $back/$COCO/$anotation/train.json
-python voc2coco.py --ann_paths_list ./val_path.txt --labels $label --output $back/$COCO/$anotation/val.json
-python voc2coco.py --ann_paths_list ./test_path.txt --labels $label --output $back/$COCO/$anotation/test.json
+python voc2coco.py --ann_paths_list ./train_path.txt --labels $label --output $COCO/$anotation/train.json
+python voc2coco.py --ann_paths_list ./val_path.txt --labels $label --output $COCO/$anotation/val.json
+python voc2coco.py --ann_paths_list ./test_path.txt --labels $label --output $COCO/$anotation/test.json
 
 # Remove xml file in COCO path
-python remove_files.py $back/$COCO/$train xml
-python remove_files.py $back/$COCO/$val xml
+python remove_files.py $COCO/$train xml
+python remove_files.py $COCO/$val xml
 #python remove_files.py $back/$COCO/$test xml
 
 # Move to main folder
