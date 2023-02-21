@@ -1,8 +1,7 @@
 #!/bin/bash
 # Make shell script for training Custom Dataset
 
-COCO_dir = $1
-COCO="../$COCO_dir"
+COCO=$1
 NUM_CLASSES=$2
 NUM_EPOCHS=$3
 BATCH_SIZE=$4
