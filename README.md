@@ -152,5 +152,5 @@ $ ./Train.sh <COCO_dir> <Num_Classes> <Num_Epochs> <Batch_Size> <Num_GPU> <Outpu
 - **Step 3. Script를 사용한 DETR 결과 추론**
 
 ```bash
-$ ./Inference.sh <COCO_dir> <Num_Classes> <Batch_Size> <Output> <Check_point>
+$ ./Inference.sh <COCO_dir> <Num_Classes> <Batch_Size> <Check_point_path>
 ```
